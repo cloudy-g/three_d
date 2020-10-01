@@ -1,7 +1,6 @@
 # threeDjs
 # 三维分型维数
 ### 运行
-  - npm install
   - node main.js
 ### 数据
   - 数据存放位置
