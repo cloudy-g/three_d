@@ -50,6 +50,7 @@ var get_3D = function (data, edge) {
   let r_x = 60,
 	r_y = 150,
 	r_z = 30;
+  // 影响因子 q	
   let q = [1/2,3/4,7/8,15/16];
   /*let r = 30;*/
   // 初始参数
