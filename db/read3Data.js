@@ -5,18 +5,18 @@ var path = require("path");
 var readline = require("readline");
 var {
   format
-} = require('../methods/format_data')
-
+} = require('../methods/format_data');
+let filesP = 'd11_data';
 
 const readliner = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, '../data/d3_data/x.txt')),
+  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/x.txt`)),
 });
 
 const readliner1 = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, '../data/d3_data/y.txt')),
+  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/y.txt`)),
 });
 const readliner2 = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, '../data/d3_data/z.txt')),
+  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/z.txt`)),
 });
 
 let res = {

@@ -1,15 +1,19 @@
 {
-  "name": "coding",
+  "name": "newcode",
   "version": "1.0.0",
-  "description": "",
+  "description": "- npm install   - node main.js ### 数据   - 数据存放位置     - data/d3_data   - 以txt形式存放   - x , y, z 存放三个txt文件 ### txt文件   - 使用 excel 导入txt数据形式   - 进行筛选   - 在matlab中对数据进行整理成txt形式   - process 流程图片",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudy-g/three_d.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mongoose": "^5.10.5",
-    "readline": "^1.3.0"
-  }
+  "bugs": {
+    "url": "https://github.com/cloudy-g/three_d/issues"
+  },
+  "homepage": "https://github.com/cloudy-g/three_d#readme"
 }

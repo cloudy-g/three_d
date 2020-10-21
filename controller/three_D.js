@@ -13,11 +13,11 @@ var get_3D = function (data, edge) {
       z: v.z
     }
   })
-  // 过滤有无数据
+  // 过滤数据
   data = data.filter(v => {
-    if (v.x >= 0 && v.x <= 30) {
+    if (v.x >= 0 && v.x <= 60) {
       if (v.y >= 0 && v.y <= 150) {
-        if (v.z >= 0 && v.z <= 50) {
+        if (v.z >= 0 && v.z <= 30) {
           return true;
         }
       }
@@ -36,7 +36,7 @@ var get_3D = function (data, edge) {
     return a.x - b.x;
   })
   // 数据放大 
-  for (let i = 0; i < data.length; i++) {
+  /*for (let i = 0; i < data.length; i++) {
     const ele = data[i];
     ele.x *= Math.pow(2, 8);
     ele.y *= Math.pow(2, 8);
@@ -45,28 +45,39 @@ var get_3D = function (data, edge) {
   for (let i = 0; i < edge.length; i++) {
     edge[i] *= Math.pow(2, 8);
   }
+  */
   // r初始值
-  let r = Math.pow(2, 5);
+  let r_x = 60,
+	r_y = 150,
+	r_z = 30;
+  let q = [1/2,3/4,7/8,15/16];
+  /*let r = 30;*/
   // 初始参数
   let RTCorner, flag, copy, count,
     res = [];
-
   console.log(data);
+  console.log(data.length);
   console.log(edge);
 
   // 控制循环次数 0 - 9(不包括) 9 次 
-  let times = 0;
-  while (times < 9) {
-
-    flag = false;
-    copy = deepCopy(data);
-    count = 0;
+  let end = 6;
+  let times = end;
+  let index = 0;
+  //
+  while (index < q.length) {
+	while(times-- > 0){
+		flag = false;
+		copy = deepCopy(data);
+		count = 0;
+		r_x = Number(r_x.toFixed(3)),
+		r_y = Number(r_y.toFixed(3)),
+		r_z = Number(r_z.toFixed(3));
     // 三层循环
-    for (let i = 0; i < edge[0]; i += r) {
-      for (let j = 0; j < edge[1]; j += r) {
-        for (let m = 0; m < edge[2]; m += r) {
+    for (let i = 0; i < edge[0]; i += r_x) {
+      for (let j = 0; j < edge[1]; j += r_y) {
+        for (let m = 0; m < edge[2]; m += r_z) {
 
-          RTCorner = [i + r, j + r, m + r];
+          RTCorner = [i + r_x, j + r_y, m + r_z];
 
           for (let k = 0; k < copy.length;) {
             const element = copy[k];
@@ -86,10 +97,19 @@ var get_3D = function (data, edge) {
         }
       }
     }
-    console.log(r, count);
-    res.push([r, count]);
-    r *= 2;
-    times++;
+		console.log(q[index],r_x,r_y,r_z, count);
+		res.push([q[index],r_x,r_y,r_z, count]);
+	
+		r_x *= q[index];
+		r_y *= q[index];
+		r_z *= q[index];
+	}
+	times = end;
+	index++;
+	r_x = 60,
+	r_y = 150,
+	r_z = 30;
+    //times++;
   }
   return res;
 }
