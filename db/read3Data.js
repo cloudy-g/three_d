@@ -1,22 +1,22 @@
 // 逐行读取数据
 var fs = require("fs");
-const { resolve } = require("path");
 var path = require("path");
 var readline = require("readline");
 var {
   format
 } = require('../methods/format_data');
-let filesP = 'd11_data';
+let filesP = 'y_2';
 
 const readliner = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/x.txt`)),
+  input: fs.createReadStream(path.join(__dirname, `../data/source/${filesP}/x.txt`)),
 });
 
 const readliner1 = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/y.txt`)),
+  input: fs.createReadStream(path.join(__dirname, `../data/source/${filesP}/y.txt`)),
 });
+
 const readliner2 = readline.createInterface({
-  input: fs.createReadStream(path.join(__dirname, `../data/${filesP}/z.txt`)),
+  input: fs.createReadStream(path.join(__dirname, `../data/source/${filesP}/z.txt`)),
 });
 
 let res = {

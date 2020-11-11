@@ -50,7 +50,7 @@ var get_3D = function (data, edge) {
   let r_x = 60,
 	r_y = 150,
 	r_z = 30;
-  let q = [1/2,3/4,7/8,15/16];
+  let q = [1/2,3/4];
   /*let r = 30;*/
   // 初始参数
   let RTCorner, flag, copy, count,
@@ -111,7 +111,7 @@ var get_3D = function (data, edge) {
 	r_z = 30;
     //times++;
   }
-  return res;
+  return [res,data];
 }
 
 module.exports = {
