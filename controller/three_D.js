@@ -50,7 +50,12 @@ var get_3D = function (data, edge) {
   let r_x = 60,
 	r_y = 150,
 	r_z = 30;
+<<<<<<< HEAD
   let q = [1/2,3/4];
+=======
+  // 影响因子 q	
+  let q = [1/2,3/4,7/8,15/16];
+>>>>>>> 47ac9321b1a22a89773e50f587b2779794ab868e
   /*let r = 30;*/
   // 初始参数
   let RTCorner, flag, copy, count,
